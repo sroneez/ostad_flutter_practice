@@ -109,6 +109,7 @@ class FlutterButtons extends StatelessWidget {
               OutlinedButton(onPressed: () {},
                   child:const Text('Tap'),
               ),
+              //this button is for adding a button on a simple text
               GestureDetector(
                 onTap: (){
                   print('onTap');
