@@ -1,145 +1,155 @@
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+//import 'package:untitled/text_filed.dart';
 
-void main() {
+void main(){
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget{
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: FlutterButtons(),
+  Widget build(BuildContext context){
+    return const MaterialApp(
+      home:SignInPage(),
     );
   }
 }
 
-class FlutterButtons extends StatelessWidget {
+class SignInPage extends StatelessWidget{
+  const SignInPage({super.key});
+
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Buttons',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          backgroundColor: Colors.green,
-          centerTitle: true,
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  foregroundColor: Colors.white,
-                  textStyle: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title:const Text('Image'),
+      ),
+      body: SingleChildScrollView(
+        child: Center(
+            child: Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.blue,
+                      width: 5,
+                    ),
                   ),
-                  padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-                  shadowColor: Colors.yellow.shade900,
-                  elevation: 6,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    side: const BorderSide(color: Colors.amber, width: 5),
+                  child: Image.asset('assets/—Pngtree—tianli school campus image image_3796528.png',
+                  height: 100,
                   ),
-                  minimumSize: Size(100,50),
                 ),
-                onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) {
+                const SizedBox(height: 10,),
+                SizedBox(
+                  width: 350,
+                  child: TextField(
+                    onTap: (){},
+                    decoration: const InputDecoration(
+                      hintText: 'your_full_name',
+                      hintStyle: TextStyle(
+                        fontWeight: FontWeight.w200,
+                      ),
+                      label: Text('Name'),
+                      border: OutlineInputBorder(
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                        color: Colors.black,
+                        width: 2,
+                        ),
+                       ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                          width: 2,
+                        ),
+                      ),
+                  ),
+                      ),
+                ),
+                const SizedBox(height: 10,),
+                SizedBox(
+                  width: 350,
+                  child: TextField(
+                    onTap: (){},
+                    decoration: const InputDecoration(
+                      hintText: '01XXXXXXXXX',
+                      hintStyle: TextStyle(
+                        fontWeight: FontWeight.w200,
+                      ),
+                      label: Text('Phone'),
+                      border: OutlineInputBorder(
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10,),
+                SizedBox(
+                  width: 350,
+                  child: TextField(
+                    onTap: (){},
+                    decoration: const InputDecoration(
+                      hintText: 'outlook@gmail.com',
+                      hintStyle: TextStyle(
+                        fontWeight: FontWeight.w200,
+                      ),
+                      label: Text('Email'),
+                      border: OutlineInputBorder(
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    ElevatedButton(onPressed: (){
+                      showDialog(context: context, builder: (context){
                         return AlertDialog(
-                          title: Text('Delete'),
-                          content: Text('Are your sure?'),
+                          content: const Text('Are you sure?'),
                           actions: [
-                            TextButton(
-                              onPressed: () {},
-                              child: Text('yes'),
-                            ),
-                            TextButton(
-                              onPressed: () {},
-                              child: Text('no'),
-                            ),
+                            TextButton(onPressed: (){}, child: const Text('yes')),
+                            TextButton(onPressed: (){}, child: const Text('no')),
                           ],
                         );
                       });
-                },
-                child: Text('Press'),
-              ),
-              SizedBox(height: 20,),
-              TextButton(
-                  onPressed: () {
-                    showDialog(
-                        barrierColor: Colors.black,
-                        barrierDismissible: false,
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: const Text('Exit'),
-                            content: const Text('are you sure?'),
-                            actions: [
-                              ElevatedButton(
-                                  onPressed: () {}, child: const Text('yes')),
-                              ElevatedButton(
-                                  onPressed: () {},
-                                  child: const Icon(Icons.add_alert)),
-                              ElevatedButton(
-                                  onPressed: () {}, child: const Text('yes')),
-                              ElevatedButton(
-                                  onPressed: () {}, child: const Text('yes')),
-                            ],
-                          );
-                        });
-                  },
-                  child: const Text('hello')
-              ),
-              const SizedBox(height: 20,),
-
-              FloatingActionButton(onPressed: (){},
-                  child: const Icon(Icons.ac_unit),
-              ),
-              const SizedBox(height: 20,),
-              OutlinedButton(onPressed: () {},
-                  child:const Text('Tap'),
-              ),
-              GestureDetector(
-                onTap: (){
-                  print('onTap');
-                },
-                onDoubleTapCancel: (){
-                  print('On double Tap');
-                },
-                onHorizontalDragEnd: (details){
-                  print('on horizontal press');
-                },
-                child: const Column(
-                  children: [
-                    Text('Simple Text'),
-                    Text('Simple Text'),
-                    Text('Simple Text'),
+                    },
+                        child: const Text('Submit'),
+                    ),
+                    const SizedBox(width: 10,),
+                    ElevatedButton(onPressed: (){},
+                      child: const Text('Cancel'),
+                    ),
                   ],
                 ),
-              ),
-              InkWell(
-                onTap: () {
-                  print('InkWell');
-                },
-                splashColor: Colors.amber,
-                borderRadius: BorderRadius.circular(20),
-                child: Text('Button'),
-              ),
-            ],
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(onPressed: () {},
-            child: const Icon(Icons.add),
+              ],
+            )
         ),
       ),
     );
