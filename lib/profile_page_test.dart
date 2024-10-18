@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -15,220 +17,85 @@ class ProfilePageTest extends StatelessWidget {
           fontSize: 18,
           color: Colors.black,
         ),
-        leading:
-            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
-        actions: [
-          const Text('Settings'),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
-        ],
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 20,
+      /*drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text("John Doe"),
+              accountEmail: Text("john.doe@example.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage('assets/profile_pic.jpg'), // Add your image
               ),
-              Stack(
-                  alignment: Alignment.bottomRight,
-                  children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage(
-                    'assets/face1.webp',
-                  ),
-                  // minRadius: 60,
-                  maxRadius: 60,
-                ),
-                Positioned(
-                  right: 11,
-                  bottom: 11,
-                  child: Container(
-                    width: 12,
-                    height: 12,
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.white,width: 2),
-                    ),
-                  ),
-                ),
-              ]),
-              const SizedBox(height: 10),
-              Text(
-                'Mark Zuckerberg',
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+              decoration: BoxDecoration(
+                color: Colors.blue,
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                'Photography | Travelling | Programming',
-                style: TextStyle(
-                  fontWeight: FontWeight.w200,
-                ),
-              ),
-              Text(
-                'California, USA',
-                style: TextStyle(
-                  fontWeight: FontWeight.w200,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.edit,
-                    size: 14,
-                  ),
-                  Text('Edit the profile'),
-                  const SizedBox(height: 20),
-                ],
-              ),
-              SizedBox(
-                height: 32,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: [
-                      Text(
-                        'Post',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w200,
-                          fontSize: 16,
-                        ),
-                      ),
-                      Text('35',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          )),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('Profile'),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Logout'),
+              onTap: () {
+                showDialog(context: context, builder: (context){
+                  return AlertDialog(
+                    title: Text("Logout"),
+                    actions: [
+                      TextButton(onPressed: (){exit(0);}, child: Text('yes')),
+                      TextButton(onPressed: (){Navigator.of(context).pop();}, child: Text('no')),
                     ],
-                  ),
-                  Column(
-                    children: [
-                      Text('Followers',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w200,
-                            fontSize: 16,
-                          )),
-                      Text(
-                        '4521',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Text('Follows',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w200,
-                            fontSize: 16,
-                          )),
-                      Text('124',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          )),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: Image.asset(
-                      'assets/face2.webp',
-                      height: 210,
-                      width: 150,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: Image.asset(
-                          'assets/face3.webp',
-                          width: 150,
-                          height: 100,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      // Space between second and third images
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: Image.asset(
-                          'assets/face4.webp',
-                          width: 150,
-                          height: 100,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
+                  );
+                });
+              },
+            ),
+          ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 3,
-        onTap: (index) {},
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: Colors.black,
-              ),
-              label: 'Home'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.search,
-                color: Colors.black,
-              ),
-              label: 'Search'),
-          BottomNavigationBarItem(
-              icon: FaIcon(
-                FontAwesomeIcons.paperPlane,
-                color: Colors.black,
-              ),
-              label: 'Share'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.favorite_border,
-                color: Colors.black,
-              ),
-              label: 'Like'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person,
-                color: Colors.black,
-              ),
-              label: 'Profile'),
+      ),*/
+      body: GridView.extent(
+        maxCrossAxisExtent: 300,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 5,
+        reverse: true,
+        padding: const EdgeInsets.all(8),
+        scrollDirection: Axis.vertical,
+        physics: const BouncingScrollPhysics(),
+        children: [
+          Image.asset('assets/image1.jpeg',fit: BoxFit.cover,),
+          Image.asset('assets/image2.jpeg',fit: BoxFit.cover,),
+          Image.asset('assets/image3.jpeg',fit: BoxFit.cover,),
+          Image.asset('assets/image4.jpeg',fit: BoxFit.cover,),
+          Image.asset('assets/image5.jpeg',fit: BoxFit.cover,),
+          Image.asset('assets/image6.jpeg',fit: BoxFit.cover,),
+          Image.asset('assets/image7.jpeg',fit: BoxFit.cover,),
+          Image.asset('assets/image8.jpeg',fit: BoxFit.cover,),
+          Image.asset('assets/image9.jpeg',fit: BoxFit.cover,),
+          Image.asset('assets/image10.jpeg',fit: BoxFit.cover,),
+          Image.asset('assets/images11.jpeg',fit: BoxFit.cover,),
+          Image.asset('assets/image12.jpeg',fit: BoxFit.cover,),
+          Image.asset('assets/image13.jpeg',fit: BoxFit.cover,),
+          Image.asset('assets/image14.jpeg',fit: BoxFit.cover,),
+          Image.asset('assets/image15.jpeg',fit: BoxFit.cover,),
+          Image.asset('assets/image16.jpeg',fit: BoxFit.cover,),
         ],
       ),
     );
   }
+}
+
+Widget myBox(int index) {
+  return Container(
+    // margin: const EdgeInsets.all(8),
+    color: Colors.blue,
+    alignment: Alignment.center,
+    child: Text('$index'),
+  );
 }
